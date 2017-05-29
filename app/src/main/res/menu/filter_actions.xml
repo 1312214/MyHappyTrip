@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/vui_choi_item"
+        android:title="Vui chơi"/>
+
+    <item
+        android:id="@+id/canh_dep_item"
+        android:title="Cảnh Đẹp"/>
+
+    <item
+        android:id="@+id/di_tich_item"
+        android:title="Di Tích"/>
+
+
+</menu>

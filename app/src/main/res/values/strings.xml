@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">HappyTrip</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <string name="button_take_photo">Take a Photo</string>
+    <string name="button_gps">My Location</string>
+    <string name="button_galary">My Galary</string>
+    <string name="button_share">Share</string>
+    <string name="button_create_place">Create a Place</string>
+    <string name="font_size">3pt</string>
+
+</resources>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    android:orientation="horizontal"
+    android:weightSum="5"
+    android:background="@color/colorPipe">
+
+
+    <Button
+        android:id="@+id/button_take_photo"
+        android:layout_height="@dimen/button_funct_height"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:background="@color/colorButton"
+        android:layout_marginRight="1dp"
+        android:paddingBottom="0dp"
+        android:paddingTop="6dp"
+        android:text="@string/button_take_photo"
+        android:textColor="@color/colorButtonText"
+        android:textSize="@dimen/activity_button_text"
+        android:drawableTop="@drawable/ic_photo_camera_black_18dp"/>
+
+    <Button
+        android:id="@+id/button_galary"
+        android:layout_height="@dimen/button_funct_height"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:background="@color/colorButton"
+        android:layout_marginRight="1dp"
+        android:paddingBottom="0dp"
+        android:paddingTop="6dp"
+        android:text="@string/button_galary"
+        android:textColor="@color/colorButtonText"
+        android:textSize="@dimen/activity_button_text"
+        android:drawableTop="@drawable/ic_photo_library_black_18dp" />
+
+    <Button
+        android:id="@+id/button_create_place"
+        android:layout_height="@dimen/button_funct_height"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_marginRight="1dp"
+        android:paddingBottom="0dp"
+        android:paddingTop="6dp"
+        android:background="@color/colorButton"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/button_create_place"
+        android:textColor="@color/colorButtonText"
+        android:textSize="@dimen/activity_button_text"
+        android:drawableTop="@drawable/ic_create_a_place" />
+
+    <Button
+        android:id="@+id/button_gps"
+        android:layout_height="@dimen/button_funct_height"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_marginRight="1dp"
+        android:paddingBottom="0dp"
+        android:paddingTop="6dp"
+        android:background="@color/colorButton"
+        android:text="@string/button_gps"
+        android:textColor="@color/colorButtonText"
+        android:textSize="@dimen/activity_button_text"
+        android:drawableTop="@drawable/ic_gps_fixed_black_18dp" />
+
+    <Button
+        android:id="@+id/button_share"
+        android:layout_height="@dimen/button_funct_height"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:background="@color/colorButton"
+        android:paddingBottom="0dp"
+        android:paddingTop="6dp"
+        android:text="@string/button_share"
+        android:textColor="@color/colorButtonText"
+        android:textSize="@dimen/activity_button_text"
+        android:drawableTop="@drawable/ic_share_black_18dp" />
+
+
+</LinearLayout>
+
+
