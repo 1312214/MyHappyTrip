@@ -85,11 +85,7 @@ public class MainActivity extends AppCompatActivity
         btncreateplace.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                activeCreateAPlaceButton();
-                deactiveTakeAPhotoButton();
-                deactiveShareButton();
-                deactiveGalaryButton();
-                deactiveGPSButton();
+
 
 
                 // do something here.
@@ -99,13 +95,7 @@ public class MainActivity extends AppCompatActivity
         btngalary.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                activeGalaryButton();
-                deactiveGPSButton();
-                deactiveShareButton();
-                deactiveTakeAPhotoButton();
-                deactiveCreateAPlaceButton();
 
-                // do sth.
             }
         });
 
@@ -113,14 +103,7 @@ public class MainActivity extends AppCompatActivity
         btnshare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                activeShareButton();
-                deactiveCreateAPlaceButton();
-                deactiveTakeAPhotoButton();
-                deactiveGPSButton();
-                deactiveGalaryButton();
 
-
-                // do something.
             }
         });
 
@@ -128,13 +111,7 @@ public class MainActivity extends AppCompatActivity
         btntakephoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                activeTakeAPhotoButton();
-                deactiveGalaryButton();
-                deactiveGPSButton();
-                deactiveCreateAPlaceButton();
-                deactiveShareButton();
 
-                // do something
             }
         });
 
@@ -142,14 +119,7 @@ public class MainActivity extends AppCompatActivity
         btngps.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                activeGPSButton();
-                deactiveCreateAPlaceButton();
-                deactiveGalaryButton();
-                deactiveShareButton();
-                deactiveTakeAPhotoButton();
 
-
-                //remain to do something for this method.
             }
         });
 
@@ -158,95 +128,6 @@ public class MainActivity extends AppCompatActivity
 
 
 
-
-
-    // This method uses to change color of the text and icon in button
-    public void activeGPSButton()
-    {
-        btngps.setTextColor(getResources().getColor(R.color.colorWhite));
-        btngps.setBackgroundColor(getResources().getColor(R.color.colorActive));
-        btngps.setCompoundDrawablesWithIntrinsicBounds(0,R.drawable.ic_gps_fixed_white_18dp,0,0);
-
-    }
-
-    public void deactiveGPSButton()
-    {
-        btngps.setTextColor(getResources().getColor(R.color.colorButtonText));
-        btngps.setBackgroundColor(getResources().getColor(R.color.colorButton));
-        btngps.setCompoundDrawablesWithIntrinsicBounds(0,R.drawable.ic_gps_fixed_black_18dp,0,0);
-
-    }
-
-
-    // Take a photo button
-    private void activeTakeAPhotoButton()
-    {
-        btntakephoto.setTextColor(getResources().getColor(R.color.colorWhite));
-        btntakephoto.setBackgroundColor(getResources().getColor(R.color.colorActive));
-        btntakephoto.setCompoundDrawablesWithIntrinsicBounds(0,R.drawable.ic_photo_camera_white_18dp,0,0);
-
-    }
-
-    private void deactiveTakeAPhotoButton()
-    {
-        btntakephoto.setTextColor(getResources().getColor(R.color.colorButtonText));
-        btntakephoto.setBackgroundColor(getResources().getColor(R.color.colorButton));
-        btntakephoto.setCompoundDrawablesWithIntrinsicBounds(0,R.drawable.ic_photo_camera_black_18dp,0,0);
-
-    }
-
-    // Share button
-    private void activeShareButton()
-    {
-        btnshare.setTextColor(getResources().getColor(R.color.colorWhite));
-        btnshare.setBackgroundColor(getResources().getColor(R.color.colorActive));
-        btnshare.setCompoundDrawablesWithIntrinsicBounds(0,R.drawable.ic_share_white_18dp,0,0);
-
-    }
-
-    private void deactiveShareButton()
-    {
-        btnshare.setTextColor(getResources().getColor(R.color.colorButtonText));
-        btnshare.setBackgroundColor(getResources().getColor(R.color.colorButton));
-        btnshare.setCompoundDrawablesWithIntrinsicBounds(0,R.drawable.ic_share_black_18dp,0,0);
-
-    }
-
-
-    // Galary Button
-    private void activeGalaryButton()
-    {
-        btngalary.setTextColor(getResources().getColor(R.color.colorWhite));
-        btngalary.setBackgroundColor(getResources().getColor(R.color.colorActive));
-        btngalary.setCompoundDrawablesWithIntrinsicBounds(0,R.drawable.ic_photo_library_white_18dp,0,0);
-
-    }
-
-    private void deactiveGalaryButton()
-    {
-        btngalary.setTextColor(getResources().getColor(R.color.colorButtonText));
-        btngalary.setBackgroundColor(getResources().getColor(R.color.colorButton));
-        btngalary.setCompoundDrawablesWithIntrinsicBounds(0,R.drawable.ic_photo_library_black_18dp,0,0);
-
-    }
-
-
-    // Create-a-place button
-    private void activeCreateAPlaceButton()
-    {
-        btncreateplace.setTextColor(getResources().getColor(R.color.colorWhite));
-        btncreateplace.setBackgroundColor(getResources().getColor(R.color.colorActive));
-        btncreateplace.setCompoundDrawablesWithIntrinsicBounds(0,R.drawable.ic_create_a_place_white,0,0);
-
-    }
-
-    private void deactiveCreateAPlaceButton()
-    {
-        btncreateplace.setTextColor(getResources().getColor(R.color.colorButtonText));
-        btncreateplace.setBackgroundColor(getResources().getColor(R.color.colorButton));
-        btncreateplace.setCompoundDrawablesWithIntrinsicBounds(0,R.drawable.ic_create_a_place,0,0);
-
-    }
 
 
 
