@@ -67,7 +67,6 @@ public class MainActivity extends AppCompatActivity
 
 
 
-
         // Check that Google_Play_service is available on the device
         int result = GooglePlayServicesUtil
                 .isGooglePlayServicesAvailable(
@@ -101,12 +100,8 @@ public class MainActivity extends AppCompatActivity
                         }
                         activity.putExtra("myObject", new Gson().toJson(selectedPlace));
                         startActivity(activity);
-
-
                     }
                 });
-
-
             }
 
 
@@ -115,9 +110,6 @@ public class MainActivity extends AppCompatActivity
 
         // init database
         initDataBase();
-
-        //addAllMarkerToMapScreen();
-
 
         //connect to id of buttons.
         btncreateplace = (Button)findViewById(R.id.button_create_place);
@@ -173,6 +165,10 @@ public class MainActivity extends AppCompatActivity
 
     }// END onCreate
 
+
+
+
+
     // this method add all place markers to the map screen.
     public void addAllMarkerToMapScreen(GoogleMap mMap){
         for(int i = 0; i < dbase.size(); i++ ) {
@@ -185,7 +181,7 @@ public class MainActivity extends AppCompatActivity
     public void setAMarkerToMap(GoogleMap mMap, LatLng markerPos,
                                int placeThumnial, String placeName, String address){
         Bitmap.Config conf = Bitmap.Config.ARGB_8888;
-        Bitmap bmp = Bitmap.createBitmap(80, 80, conf);
+        Bitmap bmp = Bitmap.createBitmap(350, 350, conf);
         Canvas canvas1 = new Canvas(bmp);
 
         // paint defines the text color, stroke width and size
@@ -196,7 +192,6 @@ public class MainActivity extends AppCompatActivity
         // modify canvas
         canvas1.drawBitmap(BitmapFactory.decodeResource(getResources(),
                 placeThumnial), 0,0, color);
-        //canvas1.drawText(placeName, 30, 40, color);
 
         // add marker to Map
         mMap.addMarker(new MarkerOptions().position(markerPos).title(placeName).snippet(address)

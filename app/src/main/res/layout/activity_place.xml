@@ -8,28 +8,17 @@
     tools:context="com.project.rogerh.happytrip.PlaceActivity">
 
 
-    <TextView
-        android:id="@+id/TenDiaDiem"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="Phố đi bộ Nguyễn Huệ"
-        android:textAlignment="center"
-        android:paddingBottom="20px"
-        android:paddingTop="20px"
-        android:textColor="@color/colorWhite"
-        android:textSize="24sp"
-        android:background="@color/colorPrimaryDark" />
 
     <ImageView
         android:id="@+id/CacHinhAnhDiaDiem"
         android:layout_width="match_parent"
-        android:layout_height="280dp"
+        android:layout_height="250dp"
+        android:layout_marginBottom="8dp"
         android:src="@drawable/pho_di_bo_nguyen_hue" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp">
+        android:layout_marginBottom="10dp">
         <ImageView
             android:layout_width="10dp"
             android:layout_height="10dp"
@@ -49,180 +38,230 @@
     </LinearLayout>
 
 
-
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:orientation="vertical">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.80"
-                android:background="@drawable/set_line_border"
-                android:ems="10" />
-
-            <TextView
-                android:id="@+id/DiaChi"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:text="Địa chỉ"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/DiaChi_ChiTiet"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:text="Đường Nguyễn Huệ, Phường 1, Quận 1, TP.HCM" />
-
-
-            <TextView
-                android:id="@+id/LienHe"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:inputType="textPersonName"
-                android:text="Liên hệ : 0871379315" />
+            android:layout_height="wrap_content">
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10px"
-                android:layout_marginTop="10px"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="70px"
-                    android:layout_height="70px"
-                    android:layout_marginLeft="50dp"
-                    android:layout_marginRight="60dp"
-                    android:src="@drawable/icon_luu_dia_diem" />
-
-                <ImageView
-                    android:id="@+id/Rating1"
-                    android:layout_width="70px"
-                    android:layout_height="70px"
-                    android:src="@drawable/icon_rating_stars" />
-
-                <ImageView
-                    android:id="@+id/Rating2"
-                    android:layout_width="70px"
-                    android:layout_height="70px"
-                    android:src="@drawable/icon_rating_stars_2" />
-
-                <ImageView
-                    android:id="@+id/Rating3"
-                    android:layout_width="70px"
-                    android:layout_height="70px"
-                    android:src="@drawable/icon_rating_stars_2" />
-
-                <ImageView
-                    android:id="@+id/Rating4"
-                    android:layout_width="70px"
-                    android:layout_height="70px"
-                    android:src="@drawable/icon_rating_stars_2" />
-
-                <ImageView
-                    android:id="@+id/Rating"
-                    android:layout_width="70px"
-                    android:layout_height="70px"
-                    android:src="@drawable/icon_rating_stars_2" />
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:orientation="vertical">
 
                 <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/set_line_border"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp">
+
+                    <TextView
+                        android:id="@+id/DiaChi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Địa chỉ:"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/DiaChi_ChiTiet"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:text="Đường Nguyễn Huệ, Phường 1, Quận 1, TP.HCM" />
+
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="50px"
-                    android:layout_marginLeft="40px"
-                    android:text="5/5" />
+                    android:layout_height="wrap_content"
 
-            </LinearLayout>
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="0.80"
-                android:background="@drawable/set_line_border"
-                android:ems="10" />
+                    <TextView
+                        android:id="@+id/LienHe"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Liên hệ:"
+                        android:textSize="18sp"
+                        android:textStyle="bold"/>
 
+                    <TextView
+                        android:id="@+id/LienHe_ChiTiet"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="Liên hệ : 0871379315" />
 
-            <TextView
-                android:id="@+id/GioiThieu"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.05"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Giới thiệu"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/GioiThieu_ChiTiet"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:text="Phố đi bộ Nguyễn Huệ là một trong những con đường kim cương thu hút rất nhiều khách..." />
-
-            <ImageView
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                android:layout_marginLeft="300dp"
-                android:src="@drawable/icon_xem_them" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="0.80"
-                android:background="@drawable/set_line_border"
-                android:ems="10" />
+                 </LinearLayout>
 
 
-            <TextView
-                android:id="@+id/BinhLuan"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_weight="0.05"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Bình luận"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="10dp">
 
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginLeft="280dp"
-                android:src="@drawable/icon_comment" />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:orientation="horizontal"
-                android:layout_marginBottom="20px"
-                android:background="@drawable/set_border">
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="15dp"
-                    android:src="@drawable/icon_comment_person"/>
+                    <ImageView
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:layout_marginLeft="20dp"
+
+                        android:src="@drawable/ic_playlist_add_48px" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="35dp">
+
+                        <ImageView
+                            android:id="@+id/Rating1"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:src="@drawable/icon_rating_stars" />
+
+                        <ImageView
+                            android:id="@+id/Rating2"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:src="@drawable/icon_rating_stars_2" />
+
+                        <ImageView
+                            android:id="@+id/Rating3"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:src="@drawable/icon_rating_stars_2" />
+
+                        <ImageView
+                            android:id="@+id/Rating4"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:src="@drawable/icon_rating_stars_2" />
+
+                        <ImageView
+                            android:id="@+id/Rating"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:src="@drawable/icon_rating_stars_2" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="50px"
+                            android:layout_marginLeft="40px"
+                            android:textSize="18sp"
+                            android:text="5/5" />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
                 <TextView
-                    android:id="@+id/comment_user"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="15dp"
-                    android:text="My Hanh"/>
-            </LinearLayout>
+                    android:layout_weight="0.80"
+                    android:background="@drawable/set_line_border"
+                    android:ems="10" />
 
-        </LinearLayout>
-    </ScrollView>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp">
+
+                    <TextView
+                        android:id="@+id/GioiThieu"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Giới thiệu:"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/GioiThieu_ChiTiet"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:text="Phố đi bộ Nguyễn Huệ là một trong những con đường kim cương thu hút rất nhiều khách..." />
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/set_line_border"/>
+
+
+                <TextView
+                    android:id="@+id/BinhLuan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:text="Bình luận"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="280dp"
+                    android:src="@drawable/icon_comment" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="20px"
+                    android:background="@drawable/set_border">
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:src="@drawable/icon_comment_person"/>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/User_Name"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="25dp"
+                            android:textColor="@color/colorActive"
+                            android:text="Mỹ Hạnh"/>
+
+                        <TextView
+                            android:id="@+id/comment_user"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="15dp"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+
+    </LinearLayout>
+
 
 </LinearLayout>
