@@ -1,5 +1,10 @@
 package com.project.rogerh.happytrip;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -16,6 +21,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
@@ -23,18 +29,25 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener  {
 
     private GoogleMap map;
     Button btntakephoto, btngps, btngalary, btnshare, btncreateplace;
+    private List<Place> dbase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_main);
-        setContentView(R.layout.detail_place);
+        setContentView(R.layout.activity_main);
+       /* setContentView(R.layout.detail_place);*/
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -73,6 +86,10 @@ public class MainActivity extends AppCompatActivity
 
 
         });
+
+
+        // init database
+        initDataBase();
 
 
 
@@ -128,9 +145,91 @@ public class MainActivity extends AppCompatActivity
     } // END onCreate
 
 
+    // this method uses to add a custom market to The map screen.
+    public void setMarkerToMap(GoogleMap mMap, LatLng markerPos,
+                               int placeThumnial, String placeName){
+        Bitmap.Config conf = Bitmap.Config.ARGB_8888;
+        Bitmap bmp = Bitmap.createBitmap(80, 80, conf);
+        Canvas canvas1 = new Canvas(bmp);
+
+        // paint defines the text color, stroke width and size
+        Paint color = new Paint();
+        color.setTextSize(35);
+        color.setColor(Color.BLACK);
+
+        // modify canvas
+        canvas1.drawBitmap(BitmapFactory.decodeResource(getResources(),
+                placeThumnial), 0,0, color);
+        canvas1.drawText(placeName, 30, 40, color);
+
+        // add marker to Map
+        mMap.addMarker(new MarkerOptions().position(markerPos)
+                .icon(BitmapDescriptorFactory.fromBitmap(bmp))
+                .anchor(0.5f, 1));
+    }
 
 
+    public void initDataBase(){
+        dbase = new ArrayList<Place>();
 
+        // crete image data.
+        List<Integer> phoDiBoImgs = new ArrayList<>();
+        List<Integer> nhaThoImgs = new ArrayList<>();
+        List<Integer> nuiImgs = new ArrayList<>();
+
+        phoDiBoImgs.add(R.drawable.phodibo1);
+        phoDiBoImgs.add(R.drawable.phodibo2);
+        phoDiBoImgs.add(R.drawable.phodibo3);
+        nhaThoImgs.add(R.drawable.nhatho1);
+        nhaThoImgs.add(R.drawable.nhatho2);
+        nhaThoImgs.add(R.drawable.nhatho3);
+        nuiImgs.add(R.drawable.nui1);
+        nuiImgs.add(R.drawable.nui2);
+        nuiImgs.add(R.drawable.nui3);
+
+        // creata comment data.
+        List<String> phoDiBoCmts = new ArrayList<>();
+        List<String> nhaThoCmts = new ArrayList<>();
+        List<String> nuiCmts = new ArrayList<>();
+
+        phoDiBoCmts.add("Đây là một nơi rất thú vị, mọi người thử ghé thăm nhé =))");
+        phoDiBoCmts.add("Mọi người đã đến đây chơi chưa nào ...hehehe");
+        phoDiBoCmts.add("Hãy cùng nhau đi khám phá nơi này nào các bạn ơi!!");
+        nhaThoCmts.add("Mọi người đã đến đây chơi chưa nào ...hehehe");
+        nhaThoCmts.add("Hãy cùng nhau đi khám phá nơi này nào các bạn ơi!!");
+        nhaThoCmts.add("Đây là một nơi rất thú vị, mọi người thử ghé thăm nhé =))");
+        nuiCmts.add("Đây là một nơi rất thú vị, mọi người thử ghé thăm nhé =))");
+        nuiCmts.add("Hãy cùng nhau đi khám phá nơi này nào các bạn ơi!!");
+        nuiCmts.add("Hãy cùng nhau đi khám phá nơi này nào các bạn ơi!!");
+
+        String phoIntro = "Đường Nguyễn Huệ là một đường phố trung tâm tại Quận 1, " +
+                "Thành phố Hồ Chí Minh, nối liền Trụ sở Ủy ban Nhân dân Thành phố với " +
+                "bến Bạch Đằng, bờ sông Sài Gòn.";
+        String nhaIntro = "Nhà thờ chính tòa Đức Bà Sài Gòn " +
+                " là nhà thờ chính tòa của Tổng giáo phận Thành phố Hồ " +
+                "Chí Minh, một trong những công trình kiến trúc độc đáo của Sài Gòn, điểm đến của " +
+                "du khách trong và ngoài nước, nét đặc trưng của du lịch Việt Nam";
+        String nuiIntro = "Vùng Tây Bắc là vùng miền núi phía tây của miền Bắc Việt Nam, " +
+                "có chung đường biên giới với Lào và Trung Quốc. Vùng này có khi được gọi " +
+                "là Tây Bắc Bắc Bộ và là một trong 3 tiểu vùng địa lý tự nhiên của Bắc Bộ Việt Nam";
+
+        LatLng nhaThoxy = new LatLng(10.779784, 106.698973);
+        LatLng nuixy = new LatLng(10.776075, 106.699058);
+        LatLng phoDiBoxy = new LatLng(10.776226, 106.701577);
+
+        Place phoDiBo = new Place("Phố đi bộ Nguyễn Huệ", phoDiBoImgs,
+                "112 đường Nguyễn Huệ, Quận 1, Tp Hồ Chí Minh", 5, phoIntro, phoDiBoCmts, phoDiBoxy );
+        Place nhaTho = new Place("Nhà thời Đức Bà", nhaThoImgs,
+                "113 Đồng Khởi, Quận 3, Tp Hồ Chí Minh", 4, nhaIntro, nhaThoCmts, nhaThoxy);
+        Place nui = new Place("Vùng núi Tây Bắc - Lạng Sơn", nuiImgs,
+                "Thành Phố Lạng Sơn - Vùng Tây Bắc", 4, nuiIntro, nuiCmts, nuixy );
+
+        dbase.add(phoDiBo);
+        dbase.add(nhaTho);
+        dbase.add(nui);
+
+
+    }
 
 
 
