@@ -1,5 +1,6 @@
 package com.project.rogerh.happytrip;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -31,15 +32,17 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener  {
+        implements NavigationView.OnNavigationItemSelectedListener {
 
-    private GoogleMap map;
+    private GoogleMap mMap;
     Button btntakephoto, btngps, btngalary, btnshare, btncreateplace;
     private List<Place> dbase;
 
@@ -47,7 +50,7 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-       /* setContentView(R.layout.detail_place);*/
+       //setContentView(R.layout.detail_place);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -81,7 +84,29 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onMapReady(GoogleMap map) {
                 map.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-                //map.setMyLocationEnabled(true);
+                addAllMarkerToMapScreen(map);
+                map.addMarker(new MarkerOptions().position(new LatLng(10.774033,106.699054))
+                        .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_location_24)));
+
+                map.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
+                    @Override
+                    public void onInfoWindowClick(Marker marker) {
+                        Place selectedPlace = null;
+
+                        LatLng posMarker = marker.getPosition();
+                        Intent activity = new Intent(MainActivity.this,PlaceActivity.class);
+                        for(int i = 0 ; i < dbase.size(); i++){
+                            if(posMarker.equals(dbase.get(i).xy))
+                                selectedPlace = dbase.get(i);
+                        }
+                        activity.putExtra("myObject", new Gson().toJson(selectedPlace));
+                        startActivity(activity);
+
+
+                    }
+                });
+
+
             }
 
 
@@ -91,6 +116,7 @@ public class MainActivity extends AppCompatActivity
         // init database
         initDataBase();
 
+        //addAllMarkerToMapScreen();
 
 
         //connect to id of buttons.
@@ -142,31 +168,43 @@ public class MainActivity extends AppCompatActivity
         });
 
 
-    } // END onCreate
 
+
+
+    }// END onCreate
+
+    // this method add all place markers to the map screen.
+    public void addAllMarkerToMapScreen(GoogleMap mMap){
+        for(int i = 0; i < dbase.size(); i++ ) {
+            Place p = dbase.get(i);
+            setAMarkerToMap(mMap, p.xy, p.thumnial, p.name, p.address );
+        }
+    }
 
     // this method uses to add a custom market to The map screen.
-    public void setMarkerToMap(GoogleMap mMap, LatLng markerPos,
-                               int placeThumnial, String placeName){
+    public void setAMarkerToMap(GoogleMap mMap, LatLng markerPos,
+                               int placeThumnial, String placeName, String address){
         Bitmap.Config conf = Bitmap.Config.ARGB_8888;
         Bitmap bmp = Bitmap.createBitmap(80, 80, conf);
         Canvas canvas1 = new Canvas(bmp);
 
         // paint defines the text color, stroke width and size
         Paint color = new Paint();
-        color.setTextSize(35);
-        color.setColor(Color.BLACK);
+        color.setTextSize(10);
+        color.setColor(Color.WHITE);
 
         // modify canvas
         canvas1.drawBitmap(BitmapFactory.decodeResource(getResources(),
                 placeThumnial), 0,0, color);
-        canvas1.drawText(placeName, 30, 40, color);
+        //canvas1.drawText(placeName, 30, 40, color);
 
         // add marker to Map
-        mMap.addMarker(new MarkerOptions().position(markerPos)
+        mMap.addMarker(new MarkerOptions().position(markerPos).title(placeName).snippet(address)
                 .icon(BitmapDescriptorFactory.fromBitmap(bmp))
                 .anchor(0.5f, 1));
+
     }
+
 
 
     public void initDataBase(){
@@ -218,17 +256,18 @@ public class MainActivity extends AppCompatActivity
         LatLng phoDiBoxy = new LatLng(10.776226, 106.701577);
 
         Place phoDiBo = new Place("Phố đi bộ Nguyễn Huệ", phoDiBoImgs,
-                "112 đường Nguyễn Huệ, Quận 1, Tp Hồ Chí Minh", 5, phoIntro, phoDiBoCmts, phoDiBoxy );
+                "112 đường Nguyễn Huệ, Quận 1, Tp Hồ Chí Minh", 5, phoIntro,
+                phoDiBoCmts, phoDiBoxy, R.drawable.phodibothumnail );
         Place nhaTho = new Place("Nhà thời Đức Bà", nhaThoImgs,
-                "113 Đồng Khởi, Quận 3, Tp Hồ Chí Minh", 4, nhaIntro, nhaThoCmts, nhaThoxy);
+                "113 Đồng Khởi, Quận 3, Tp Hồ Chí Minh", 4, nhaIntro,
+                nhaThoCmts, nhaThoxy, R.drawable.nhathothumnail);
         Place nui = new Place("Vùng núi Tây Bắc - Lạng Sơn", nuiImgs,
-                "Thành Phố Lạng Sơn - Vùng Tây Bắc", 4, nuiIntro, nuiCmts, nuixy );
+                "Thành Phố Lạng Sơn - Vùng Tây Bắc", 4, nuiIntro,
+                nuiCmts, nuixy, R.drawable.nuithumnail );
 
         dbase.add(phoDiBo);
         dbase.add(nhaTho);
         dbase.add(nui);
-
-
     }
 
 

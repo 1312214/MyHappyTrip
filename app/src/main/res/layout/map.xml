@@ -7,7 +7,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     map:cameraBearing="0"
-    map:cameraTargetLat="10.775853"
-    map:cameraTargetLng="106.701340"
-    map:cameraZoom="15"
+    map:cameraTargetLat="10.777379"
+    map:cameraTargetLng="106.699668"
+    map:cameraTilt="30"
+    map:cameraZoom="16"
     tools:context="com.project.rogerh.happytrip.MainActivity" />

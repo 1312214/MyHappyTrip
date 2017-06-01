@@ -18,10 +18,11 @@ public class Place {
     public String intro;
     public List<String> comments;
     public LatLng xy;
+    public Integer thumnial;
 
 
     public Place(String _name, List<Integer> _imgs, String _address, Integer _rating,
-                 String _intro, List<String> _comments, LatLng _xy){
+                 String _intro, List<String> _comments, LatLng _xy, Integer _thumnial){
         this.name = _name;
         this.address = _address;
         this.images = _imgs;
@@ -29,6 +30,7 @@ public class Place {
         this.intro = _intro;
         this.comments = _comments;
         this.xy = _xy;
+        this.thumnial = _thumnial;
     }
 
 }
