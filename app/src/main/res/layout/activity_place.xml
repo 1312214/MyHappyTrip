@@ -12,12 +12,14 @@
     <ImageView
         android:id="@+id/CacHinhAnhDiaDiem"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="247dp"
         android:layout_marginBottom="8dp"
+        android:background="@drawable/shadow_rect"
         android:src="@drawable/pho_di_bo_nguyen_hue" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:layout_marginBottom="10dp">
         <ImageView
             android:layout_width="10dp"
@@ -116,6 +118,7 @@
                     android:layout_marginBottom="10dp">
 
                     <ImageView
+                        android:id="@+id/Button_AddList"
                         android:layout_width="45dp"
                         android:layout_height="45dp"
                         android:layout_marginLeft="20dp"
@@ -159,9 +162,10 @@
 
                         <TextView
                             android:layout_width="wrap_content"
-                            android:layout_height="50px"
-                            android:layout_marginLeft="40px"
-                            android:textSize="18sp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="3dp"
+                            android:textSize="16sp"
                             android:text="5/5" />
                     </LinearLayout>
 
@@ -171,7 +175,6 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.80"
                     android:background="@drawable/set_line_border"
                     android:ems="10" />
 
@@ -190,15 +193,17 @@
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
-                    <TextView
-                        android:id="@+id/GioiThieu_ChiTiet"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
-                        android:text="Phố đi bộ Nguyễn Huệ là một trong những con đường kim cương thu hút rất nhiều khách..." />
+
 
                 </LinearLayout>
 
+                <TextView
+                    android:id="@+id/GioiThieu_ChiTiet"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="Phố đi bộ Nguyễn Huệ " />
 
                 <TextView
                     android:layout_width="match_parent"
