@@ -115,7 +115,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginBottom="10dp">
+                    android:layout_marginBottom="3dp">
 
                     <ImageView
                         android:id="@+id/Button_AddList"
@@ -134,7 +134,7 @@
                             android:id="@+id/Rating1"
                             android:layout_width="35dp"
                             android:layout_height="35dp"
-                            android:src="@drawable/icon_rating_stars" />
+                            android:src="@drawable/icon_rating_stars_2" />
 
                         <ImageView
                             android:id="@+id/Rating2"
@@ -163,7 +163,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="20dp"
+                            android:layout_marginLeft="15dp"
                             android:layout_marginTop="3dp"
                             android:textSize="16sp"
                             android:text="5/5" />
@@ -182,7 +182,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="5dp"
                     android:layout_marginBottom="10dp">
 
                     <TextView
@@ -192,8 +192,6 @@
                         android:text="Giới thiệu:"
                         android:textSize="18sp"
                         android:textStyle="bold" />
-
-
 
                 </LinearLayout>
 

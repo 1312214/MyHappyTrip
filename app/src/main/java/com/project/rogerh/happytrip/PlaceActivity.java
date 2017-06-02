@@ -20,7 +20,6 @@ public class PlaceActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //getWindow().requestFeature(Window.FEATURE_ACTION_BAR);
         setContentView(R.layout.activity_place);
         android.support.v7.app.ActionBar acb = getSupportActionBar();
 
@@ -33,8 +32,6 @@ public class PlaceActivity extends AppCompatActivity {
 
 
         acb.setTitle(myObject.name);
-
-        txtTenDiaDiem = (TextView) findViewById(R.id.TenDiaDiem);
         txtGioiThieu = (TextView) findViewById(R.id.GioiThieu_ChiTiet);
         txtComment = (TextView) findViewById(R.id.comment_user);
         txtDiaChi = (TextView) findViewById(R.id.DiaChi_ChiTiet);

@@ -181,7 +181,7 @@ public class MainActivity extends AppCompatActivity
     public void setAMarkerToMap(GoogleMap mMap, LatLng markerPos,
                                int placeThumnial, String placeName, String address){
         Bitmap.Config conf = Bitmap.Config.ARGB_8888;
-        Bitmap bmp = Bitmap.createBitmap(270, 270, conf);
+        Bitmap bmp = Bitmap.createBitmap(250, 250, conf);
         Canvas canvas1 = new Canvas(bmp);
 
         // paint defines the text color, stroke width and size
