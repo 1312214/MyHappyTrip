@@ -171,6 +171,8 @@ public class MainActivity extends AppCompatActivity
 
 
 
+
+
         // this code block reqests user permission for performing some task.
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.MAPS_RECEIVE)
@@ -182,21 +184,12 @@ public class MainActivity extends AppCompatActivity
                         MY_PERMISSIONS_REQUEST_MAPS_RECEIVE);
 
         }
-        if (ContextCompat.checkSelfPermission(this,
-                Manifest.permission.MAPS_RECEIVE)
-                != PackageManager.PERMISSION_GRANTED) {
-
-
-                ActivityCompat.requestPermissions(this,
-                        new String[]{Manifest.permission.MAPS_RECEIVE},
-                        MY_PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION);
-
-        }
 
 
 
 
-    }// END onCreate
+
+    }           // END onCreate
 
 
 
@@ -215,15 +208,32 @@ public class MainActivity extends AppCompatActivity
 
                 } else {
 
-                    Toast.makeText(getApplicationContext(), "Permission denied to access Map Receive", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Permission denied to access MAPS_RECEIVE", Toast.LENGTH_SHORT).show();
                 }
                 return;
             }
 
-            // other 'case' lines to check for other
-            // permissions this app might request
+            case MY_PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION: {
+
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+                    // permission was granted, yay! Do the
+                    // contacts-related task you need to do.
+
+                } else {
+
+                    Toast.makeText(getApplicationContext(), "Permission denied to access ACCESS_FINE_LOCATION", Toast.LENGTH_SHORT).show();
+                }
+                return;
+            }
+
+
         }
     }
+
+
+
 
 
     // this method add all place markers to the map screen.
