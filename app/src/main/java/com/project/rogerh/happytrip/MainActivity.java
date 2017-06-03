@@ -35,22 +35,56 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.gson.Gson;
+import com.google.android.gms.analytics.GoogleAnalytics;
+import com.google.android.gms.analytics.Tracker;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
+//
+//import info.androidhive.googleanalytics.R;
+//import info.androidhive.googleanalytics.app.MyApplication;
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.project.rogerh.happytrip.R.id.info;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private GoogleMap mMap;
+
+    private Toolbar mToolbar;
+
     Button btntakephoto, btngps, btngalary, btnshare, btncreateplace;
     private List<Place> dbase;
+    private static GoogleAnalytics analytics;
+    private static Tracker tracker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-       //setContentView(R.layout.detail_place);
+        //setContentView(R.layout.detail_place);
+        analytics = GoogleAnalytics.getInstance(this);
+        analytics.setLocalDispatchPeriod(1800);
+        tracker = analytics.newTracker("UA-100403136-1");
+        tracker.enableAdvertisingIdCollection(true);
+        tracker.enableExceptionReporting(true);
+        tracker.enableAutoActivityTracking(true);
+
+
+
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -167,6 +201,14 @@ public class MainActivity extends AppCompatActivity
 
 
 
+//    synchronized public Tracker getDefaultTracker() {
+//        // To enable debug logging use: adb shell setprop log.tag.GAv4 DEBUG
+//        if (sTracker == null) {
+//            sTracker = sAnalytics.newTracker("UA-100403136-1");
+//        }
+//
+//        return sTracker;
+//    }
 
 
     // this method add all place markers to the map screen.
