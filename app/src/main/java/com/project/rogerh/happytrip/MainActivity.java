@@ -1,6 +1,7 @@
 package com.project.rogerh.happytrip;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -11,6 +12,8 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.PopupMenu;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -42,7 +45,8 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private GoogleMap mMap;
+    public static final int MY_PERMISSIONS_REQUEST_MAPS_RECEIVE = 2525;
+    public static final int MY_PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 2526;
     Button btntakephoto, btngps, btngalary, btnshare, btncreateplace;
     private List<Place> dbase;
 
@@ -118,6 +122,10 @@ public class MainActivity extends AppCompatActivity
         btntakephoto = (Button)findViewById(R.id.button_take_photo);
         btngps = (Button)findViewById(R.id.button_gps);
 
+
+
+
+        // Khi user click nút create place
         btncreateplace.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -128,6 +136,7 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
+        // khi user click nút Galary để mở album ảnh
         btngalary.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -135,7 +144,7 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
-
+        // khi user click nút Share
         btnshare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -152,6 +161,7 @@ public class MainActivity extends AppCompatActivity
         });
 
 
+        // khi user click nút GPS để xác định vị trí user.
         btngps.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -161,12 +171,59 @@ public class MainActivity extends AppCompatActivity
 
 
 
+        // this code block reqests user permission for performing some task.
+        if (ContextCompat.checkSelfPermission(this,
+                Manifest.permission.MAPS_RECEIVE)
+                != PackageManager.PERMISSION_GRANTED) {
+
+
+                ActivityCompat.requestPermissions(this,
+                        new String[]{Manifest.permission.MAPS_RECEIVE},
+                        MY_PERMISSIONS_REQUEST_MAPS_RECEIVE);
+
+        }
+        if (ContextCompat.checkSelfPermission(this,
+                Manifest.permission.MAPS_RECEIVE)
+                != PackageManager.PERMISSION_GRANTED) {
+
+
+                ActivityCompat.requestPermissions(this,
+                        new String[]{Manifest.permission.MAPS_RECEIVE},
+                        MY_PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION);
+
+        }
+
+
 
 
     }// END onCreate
 
 
 
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case MY_PERMISSIONS_REQUEST_MAPS_RECEIVE: {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+                    // permission was granted, yay! Do the
+                    // contacts-related task you need to do.
+
+                } else {
+
+                    Toast.makeText(getApplicationContext(), "Permission denied to access Map Receive", Toast.LENGTH_SHORT).show();
+                }
+                return;
+            }
+
+            // other 'case' lines to check for other
+            // permissions this app might request
+        }
+    }
 
 
     // this method add all place markers to the map screen.

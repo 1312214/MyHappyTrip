@@ -122,7 +122,6 @@
                         android:layout_width="45dp"
                         android:layout_height="45dp"
                         android:layout_marginLeft="20dp"
-
                         android:src="@drawable/ic_playlist_add_48px" />
 
                     <LinearLayout
@@ -175,8 +174,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/set_line_border"
-                    android:ems="10" />
+                    android:background="@drawable/set_line_border"/>
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -261,6 +259,7 @@
                 </LinearLayout>
 
             </LinearLayout>
+
         </ScrollView>
 
 
