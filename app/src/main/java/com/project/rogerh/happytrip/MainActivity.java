@@ -54,7 +54,6 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-       //setContentView(R.layout.detail_place);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -208,7 +207,8 @@ public class MainActivity extends AppCompatActivity
 
                 } else {
 
-                    Toast.makeText(getApplicationContext(), "Permission denied to access MAPS_RECEIVE", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),
+                            "Permission denied to access MAPS_RECEIVE", Toast.LENGTH_SHORT).show();
                 }
                 return;
             }
@@ -223,7 +223,8 @@ public class MainActivity extends AppCompatActivity
 
                 } else {
 
-                    Toast.makeText(getApplicationContext(), "Permission denied to access ACCESS_FINE_LOCATION", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),
+                            "Permission denied to access ACCESS_FINE_LOCATION", Toast.LENGTH_SHORT).show();
                 }
                 return;
             }
@@ -248,7 +249,7 @@ public class MainActivity extends AppCompatActivity
     public void setAMarkerToMap(GoogleMap mMap, LatLng markerPos,
                                int placeThumnial, String placeName, String address){
         Bitmap.Config conf = Bitmap.Config.ARGB_8888;
-        Bitmap bmp = Bitmap.createBitmap(250, 250, conf);
+        Bitmap bmp = Bitmap.createBitmap(135, 135, conf);
         Canvas canvas1 = new Canvas(bmp);
 
         // paint defines the text color, stroke width and size
